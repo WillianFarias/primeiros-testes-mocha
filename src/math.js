@@ -6,6 +6,10 @@ class Math {
       callback(a + b);
     }, 2500);//tempo em segundos para o retorno da funcao assincrona
   }
+
+  multiply(a, b) {
+    return a * b;
+  }
 }
 
 module.exports = Math;

@@ -2,15 +2,30 @@
 const assert = require('assert');
 const Math = require('../src/math.js');
 
+//valor dinamico
+let value = 0;
+
 describe('Math class', function () {
   //it descreve um comportamento esperado da classe
   //done é necessario quando se trata de metodos assincronos
+
+  //hooks
+  //garanto que este valor está zerado a cada iteracao
+  //neste caso sempre antes de cada funcao aqui está funcao será executada
+  //before - sera executado no inicio de tudo   after e afterEach
+
+  beforeEach(function() {
+    value = 0;
+  })
+
   it('Sum two numbers', function (done) /*done => nao recomendado*/{
     const math = new Math();
 
     //necessario pois por padrao no mocha um teste deve retorna em no maximo 2000ms
     //é possivel alterar o timeout 
     this.timeout(3000);
+
+    value = 5;
 
     math.sum(5, 5, value => {
       assert.equal(value, 10);
@@ -20,9 +35,10 @@ describe('Math class', function () {
   });
   //possivel criar testes sobre funcoes que ainda nao existem
   //only define que apenas o teste especifico deve ser executado
-  it.only('Multiply two numbers', function() {
+  //skip iginora o teste
+  it('Multiply two numbers', function() {
     const math = new Math();
 
-    assert.equal(math.multiply(5, 5), 25);
+    assert.equal(math.multiply(value, 5), 0);
   });
 });
