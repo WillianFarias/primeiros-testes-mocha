@@ -4,7 +4,7 @@ class Math {
   sum(a, b, callback) {
     setTimeout(() => {
       callback(a + b);
-    }, 0);
+    }, 2500);//tempo em segundos para o retorno da funcao assincrona
   }
 }
 
