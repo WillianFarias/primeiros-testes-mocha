@@ -1,6 +1,10 @@
 class Math {
-  sum = function sum(a, b) {
-    return a + b;
+  //callback define que o metodo sera assincrono, mesmo eu tendo uma resposta errada
+  //o teste vai passar pq o erro só virar apos a execucao do método
+  sum(a, b, callback) {
+    setTimeout(() => {
+      callback(a + b);
+    }, 0);
   }
 }
 
